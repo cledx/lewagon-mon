@@ -10,14 +10,15 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema[8.1].define(version: 2026_02_18_085703) do
+ActiveRecord::Schema[8.1].define(version: 2026_02_18_101815) do
   create_table "pokemons", force: :cascade do |t|
     t.datetime "created_at", null: false
     t.string "img"
     t.string "name"
+    t.integer "poke_id"
+    t.string "poke_type"
     t.string "species"
     t.integer "trainer_id", null: false
-    t.string "type"
     t.datetime "updated_at", null: false
     t.index ["trainer_id"], name: "index_pokemons_on_trainer_id"
   end
@@ -25,7 +26,7 @@ ActiveRecord::Schema[8.1].define(version: 2026_02_18_085703) do
   create_table "trainers", force: :cascade do |t|
     t.datetime "created_at", null: false
     t.string "name"
-    t.string "type"
+    t.string "trainer_type"
     t.datetime "updated_at", null: false
   end
 

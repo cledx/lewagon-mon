@@ -1,0 +1,9 @@
+<h1>Trainer: <%= @trainer.name %></h1>
+<h2>Pokemon: </h2>
+<ul>
+    <% @trainer.pokemons.all.each do |pokemon| %>
+    <li>
+        <%= pokemon.name %> - <%= pokemon.poke_type %>
+    </li>    
+    <% end %>
+</ul>

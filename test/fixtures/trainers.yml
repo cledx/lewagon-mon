@@ -2,8 +2,8 @@
 
 one:
   name: MyString
-  type: 
+  trainer_type: MyString
 
 two:
   name: MyString
-  type: 
+  trainer_type: MyString
