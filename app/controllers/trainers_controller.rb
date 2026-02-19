@@ -8,6 +8,11 @@ class TrainersController < ApplicationController
   def show
   end
 
+  def new
+    @trainer = Trainer.new()
+    @trainer.dialogue_lines = ["Hello.", "Welcome to my gym.", "Let’s battle!"]
+  end
+
   private
 
   def set_trainer
