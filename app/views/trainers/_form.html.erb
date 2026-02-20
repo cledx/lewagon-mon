@@ -1,5 +1,5 @@
 <%= simple_form_for trainer do |f| %>
-    <%= f.input :name, label: "text" %>
-    <%= f.input :type, collection:Trainer::TYPE%>
+    <%= f.input :name, placeholder:"Ash Ketchum" %>
+    <%= f.input :trainer_type, collection:Trainer::TYPE%>
     <%= f.submit %>
 <% end %>

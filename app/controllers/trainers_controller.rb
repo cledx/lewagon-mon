@@ -1,5 +1,5 @@
 class TrainersController < ApplicationController
-  
+
   before_action :set_trainer, only: [:show]
 
   def index
@@ -17,10 +17,12 @@ class TrainersController < ApplicationController
   end
 
   def create
-    # @trainer = Trainer.new(trainer_params)
-    # @step = params[:trainer][:step].to_i + 1
-    # @speaker = Trainer.find_by(name: "Professor Oak")
-    # render "trainers/new/step_#{@step}"
+    @trainer = Trainer.new(trainer_params)
+    if @trainer.save
+      redirect_to trainer_path(@trainer)
+    else
+      render :new, status: :unprocessable_entity
+    end
   end
   
   def dialogue

@@ -16,6 +16,8 @@ Rails.application.routes.draw do
   
   # get "trainers/new/:step", to: "trainers#new", as: "new_trainer"
 
-  resources :trainers
+  resources :trainers do
+    resources :pokemons, only: [:new, :create]
+  end
 
 end

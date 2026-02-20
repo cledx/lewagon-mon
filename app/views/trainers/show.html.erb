@@ -1,9 +1,17 @@
-<h1>Trainer: <%= @trainer.name %></h1>
+<h1>Trainer: <%= @trainer.trainer_type %> <%= @trainer.name %></h1>
 <h2>Pokemon: </h2>
-<ul>
+    
+<div class="cards">
     <% @trainer.pokemons.all.each do |pokemon| %>
-    <li>
-        <%= pokemon.name %> - <%= pokemon.poke_type %>
-    </li>    
+        <div class="card-category" style="background-image: linear-gradient(rgba(0, 0, 0, 0.08), rgba(0, 0, 0, 0.12)), url(<%= pokemon.img %>)">
+            <%= pokemon.name %>
+        </div>
     <% end %>
-</ul>
+</div>
+
+<% if @trainer.pokemons.all.count >= 6 %>
+<%= "You have too many pokemon! Release one or more before looking for new ones!" %>
+<% else %>
+<%= link_to 'Search for Pokemon', new_trainer_pokemon_path(@trainer) %>
+<% end %>
+<%= link_to 'Return to Home', trainers_path %>

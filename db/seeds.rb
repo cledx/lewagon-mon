@@ -16,23 +16,6 @@ TRAINER_NAMES = [
   "Blue"
 ]
 
-TRAINER_TYPES = [
-  "Bug Catcher",
-  "Biker",
-  "Ace Trainer",
-  "Lass",
-  "Hiker",
-  "Youngster",
-  "Poké Maniac",
-  "Beauty",
-  "Sailor",
-  "Black Belt",
-  "Psychic",
-  "Ranger",
-  "Fisherman",
-  "Swimmer",
-  "Team Grunt"
-]
 
 
 Trainer.create!(
@@ -49,7 +32,7 @@ Trainer.create!(
   puts "^" * 35
   trainer = Trainer.create!(
     name: TRAINER_NAMES.sample,
-    trainer_type: TRAINER_TYPES.sample
+    trainer_type: Trainer::TYPE.sample
   )
   puts "Trainer: #{trainer.name}"
   puts "Type: #{trainer.trainer_type}"

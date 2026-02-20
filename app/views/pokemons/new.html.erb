@@ -1,0 +1,20 @@
+<div class="cards">
+    <% @pokemons.each do |pokemon| %>
+        <div class="d-flex flex-column">
+            <div class="card-category" style="background-image: linear-gradient(rgba(0, 0, 0, 0.08), rgba(0, 0, 0, 0.12)), url(<%= pokemon.img %>)">
+                <%= pokemon.name %>
+            </div>
+            <%= simple_form_for @pokemon, url: trainer_pokemons_path(@trainer), method: :post do |f| %>
+                <%= f.input :species, as: :hidden, input_html: { value: pokemon.species } %>
+                <%= f.input :name, as: :hidden, input_html: { value: pokemon.name } %>
+                <%= f.input :img, as: :hidden, input_html: { value: pokemon.img } %>
+                <%= f.input :poke_type, as: :hidden, input_html: { value: pokemon.poke_type } %>
+                <%= f.input :poke_id, as: :hidden, input_html: { value: pokemon.poke_id } %>
+
+                <%= f.input :trainer_id, as: :hidden, input_html: { value: @trainer.id } %>
+
+                <%= f.submit "Choose #{ pokemon.name }", class: "btn btn-primary" %>
+            <% end %>
+        </div>
+    <% end %>
+</div>
