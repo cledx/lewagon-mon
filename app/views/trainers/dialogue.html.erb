@@ -1,0 +1,15 @@
+
+<turbo-frame id="dialogue">
+  <p><%= @message %></p>
+
+
+
+
+
+  <% if (@index < (@speaker.dialogue.length)) %>
+    <%= link_to "Next", next_dialogue_path(@speaker.id, @index + 1), data: { turbo_frame: "dialogue" } %>
+  <% else %>
+    <p><em>End of dialogue.</em></p>
+    <%= link_to "(You shouldn't be here. Go back)", trainers_path, data: { turbo_frame: "_top" }  %>
+  <% end %>
+</turbo-frame>

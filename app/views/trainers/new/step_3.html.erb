@@ -1,0 +1,9 @@
+
+<div class="container">
+    <%= @speaker.dialogue[2] %>
+    <%= simple_form_for(@trainer) do |f| %>
+    <%= hidden_field_tag :step, @step %>
+    <%= f.input :trainer_type %>
+    <%= f.submit %>
+    <% end %>
+</div>

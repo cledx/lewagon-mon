@@ -6,6 +6,9 @@ gem "rails", "~> 8.1.2"
 gem "sprockets-rails"
 gem "sassc-rails"
 gem "bootstrap", "~> 5.3"
+gem "autoprefixer-rails"
+gem "font-awesome-sass", "~> 6.1"
+gem "simple_form"
 
 # Use sqlite3 as the database for Active Record
 gem "sqlite3", ">= 2.1"

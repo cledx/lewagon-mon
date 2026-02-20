@@ -13,6 +13,8 @@ Rails.application.routes.draw do
   # root "posts#index"
   
   root "trainers#index" 
+  
+  # get "trainers/new/:step", to: "trainers#new", as: "new_trainer"
 
   resources :trainers
 

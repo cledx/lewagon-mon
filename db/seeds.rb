@@ -34,6 +34,17 @@ TRAINER_TYPES = [
   "Team Grunt"
 ]
 
+
+Trainer.create!(
+  name: "Professor Oak",
+  trainer_type: "Professor",
+  dialogue: [
+    "Hello there! Welcome to the world of Pokémon!",
+    "First, tell me your name.",
+    "Splendid. Now, choose your starter."
+  ]
+)
+
 5.times do
   puts "^" * 35
   trainer = Trainer.create!(
