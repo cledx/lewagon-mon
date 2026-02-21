@@ -1,0 +1,19 @@
+.banner{
+    border-bottom-left-radius: 5%;
+    border-bottom-right-radius: 5%;
+    border-color: black;
+    height: 30vh;
+    position: relative;
+    background-image:
+        linear-gradient(rgba(0,0,0,0.39), rgba(0,0,0,0.4)),
+        asset-url("pokecity.png");
+    .title{
+        color: white;
+        font-size: x-large;
+        text-shadow:
+        -1px -1px 0 black,
+        1px -1px 0 black,
+        -1px  1px 0 black,
+        1px  1px 0 black;
+    }
+}

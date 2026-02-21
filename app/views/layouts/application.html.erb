@@ -24,6 +24,47 @@
   </head>
 
   <body>
-    <%= yield %>
+    <nav class="navbar navbar-expand-lg navbar-dark bg-secondary font-color-white px-4 border-bottom border-5 border-black" id="header">
+
+        <div class="navbar-brand"><%= image_tag 'white_lewagon'%></div>
+        <button class="navbar-toggler" type="button" data-toggle="collapse" data-bs-toggle="dropdown" data-bs-target="#navbarNavDropdown" aria-expanded="false" aria-label="Toggle navigation">
+          <span class="navbar-toggler-icon"></span>
+        </button>
+        <div class="collapse navbar-collapse d-flex justify-content-between" id="navbarNavDropdown">
+          <ul class="navbar-nav">
+            <li class="nav-item active">
+              <%= link_to 'Home', trainers_path, class:"nav-link" %>
+            </li>
+            <!-- <li class="nav-item dropdown">
+              <button class="nav-link dropdown-toggle" data-bs-toggle="dropdown">
+                Pages
+              </button>
+              <ul class="dropdown-menu">
+                  <li>Test</li>
+              </ul>
+            </li> -->
+          </ul>
+        </div>
+
+      <%= image_tag 'center-ball', class:"center-ball" %>
+    </nav>
+    <div class="page-content">
+      <%= yield %>
+    </div>
+    <footer class="bg-white w-100 py-4 border-top border-5 border-black">
+      <div class="container d-flex flex-column align-items-center">
+        <p> A simple hobby site by Carlos Ledoux.</p><br>
+        <div class="d-flex">
+          <p>Follow Me:      (</p>
+            <a href="https://github.com/cledx" target="_blank">
+              <i class="fa-brands fa-square-github"></i>
+            </a><p>-</p>
+            <a href="http://www.linkedin.com/in/carlos-ledoux" target="_blank">
+              <i class="fa-brands fa-linkedin"></i>
+            </a>)
+        </div>
+      </div>
+    </footer>
+
   </body>
 </html>

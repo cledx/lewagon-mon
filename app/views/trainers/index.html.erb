@@ -1,10 +1,34 @@
-<h1>Trainers: </h1>
+<div class="banner d-flex justify-content-between align-items-center border-bottom border-black border-3">
+        <div class="container title">
+            <h1>LeWagon-mon</h1>
+            <p>Your place to find and collect some cute friends!</p>
+        </div>
 
-<%= link_to 'New Trainer', new_trainer_path %>
-<ul>
-    <% @trainers.each do |trainer| %>
-    <li>
-        <%= link_to trainer.name, trainer_path(trainer) %> - <%= trainer.trainer_type%>
-    </li>
-    <% end %>
-</ul>
+            <%= link_to 'New Trainer', new_trainer_path, class: "btn btn-primary btn-banner" %>
+
+</div>
+<div class="container">
+    <div class="grid">
+        <!-- From Uiverse.io by Creatlydev --> 
+        <% @trainers.each do |trainer| %>
+        <article class="card_window">
+            <section class="card_window__hero" style="background-image: linear-gradient(rgba(0,0,0,0.08), rgba(0,0,0,0.12)), url(<%= asset_path("sprites/#{trainer.trainer_type.parameterize(separator: '_')}.png") %>);">
+
+                <p class="card_window__job-title"><%= trainer.name %></p>
+            </section>
+
+            <footer class="card_window__footer">
+                <div class="card_window__job-summary">
+                    <div class="card_window__job">
+                        <p class="card_window__job-title">
+                            <%= trainer.trainer_type %>
+                        </p>
+                    </div>
+                </div>
+
+                <%= link_to "View", trainer_path(trainer), class: "text-decoration-none card_window__btn"%>
+            </footer>
+        </article>
+        <% end %>
+    </div>
+</div>

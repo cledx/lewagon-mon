@@ -7,6 +7,26 @@
   flex-grow: 0;
 }
 
-.navbar-lewagon .navbar-brand img {
+.navbar-brand img {
   width: 40px;
+}
+
+.page-content{
+  min-height: 90vh;
+}
+
+#header{
+  position: relative;
+}
+
+.center-ball{
+  width: 60px;
+  height: 60px;
+  border-radius: 50%;
+  object-fit: cover;
+  position: absolute;
+  left: 50%;
+  bottom: 0;
+  transform: translate(-50%, 50%);
+  z-index: 9999;
 }
