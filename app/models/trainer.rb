@@ -5,5 +5,5 @@ class Trainer < ApplicationRecord
   ACCEPTED_TYPE = TYPE + ["Professor", "Gym Leader"]
   UNUSED_TYPE = ["Camper", "Picnicker", "Bird Keeper", "Swimmer (Male)", "Swimmer (Female)", "Beauty", "Poké Maniac", "Guitarist", "Kindler", "Collector", "Ruin Maniac", "Psychic", "Hex Maniac", "Black Belt", "Ninja Boy", "Tuber (Male)", "Tuber (Female)", "Cooltrainer (Male)", "Cooltrainer (Female)", "Pokémon Breeder", "Pokémon Ranger", "Pokéfan (Male)", "Pokéfan (Female)", "Reporter", "Triathlete", "Dragon Tamer", "Expert", "Parasol Lady", "Twins", "Bug Maniac", "Gentleman", "Sailor", "Boarder", "Skier", "Sr. and Jr.", "Team Aqua Grunt", "Team Magma Grunt"]
   validates :trainer_type, inclusion: { in: ACCEPTED_TYPE}
-  validate :name, presence: true;
+  validates :name, presence: true;
 end
