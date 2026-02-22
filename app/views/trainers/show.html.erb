@@ -1,17 +1,64 @@
-<h1>Trainer: <%= @trainer.trainer_type %> <%= @trainer.name %></h1>
-<h2>Pokemon: </h2>
-    
-<div class="cards">
-    <% @trainer.pokemons.all.each do |pokemon| %>
-        <div class="card-category" style="background-image: linear-gradient(rgba(0, 0, 0, 0.08), rgba(0, 0, 0, 0.12)), url(<%= pokemon.img %>)">
-            <%= pokemon.name %>
-        </div>
-    <% end %>
-</div>
+<div class="container d-flex">
+    <div class="m-2">
+        <h3 class="bg-light rounded-pill p-3">Trainer: <%= @trainer.trainer_type %> <%= @trainer.name %></h1>
+        <% if Trainer::TYPE.include?(@trainer.trainer_type)
+            sprite = "#{@trainer.trainer_type.parameterize(separator: '_')}.png"
+            elsif @trainer.trainer_type == "Professor"
+            sprite = "professor.png"
+            elsif @trainer.name == "Tate & Liza"
+            sprite = "tate-liza.png"
+            else
+            sprite = "#{@trainer.name.parameterize(separator: '_')}.png" 
+            end %>
+        <article class="card_window">
+            <section class="card_window__hero" style="background-image: linear-gradient(rgba(0,0,0,0.08), rgba(0,0,0,0.12)), url(<%= asset_path("sprites/#{sprite}") %>);">
+            </section>
 
-<% if @trainer.pokemons.all.count >= 6 %>
-<%= "You have too many pokemon! Release one or more before looking for new ones!" %>
-<% else %>
-<%= link_to 'Search for Pokemon', new_trainer_pokemon_path(@trainer) %>
-<% end %>
-<%= link_to 'Return to Home', trainers_path %>
+            <footer class="card_window__footer">
+                <div class="card_window__job-summary">
+                    <div class="card_window__job">
+                        <p class="card_window__job-title">
+                            <%= @trainer.trainer_type %>
+                        </p>
+                    </div>
+                </div>
+            </footer>
+        </article>
+    </div>
+    <div>
+        <div>
+            <h2 class="bg-light rounded-pill p-3">Pokemon: </h2>
+                
+            <div class="cards m-3 bg-navy rounded p-2 border border-3">
+                <% @trainer.pokemons.all.each do |pokemon| %>
+                    <div class="card-category d-flex flex-column justify-content-end align-items-center" style="background-image: linear-gradient(rgba(0, 0, 0, 0.08), rgba(0, 0, 0, 0.12)), url(<%= pokemon.img %>)">
+                        <% unless ["Professor", "Gym Leader"].include?(@trainer.trainer_type)%>
+                            <%= button_to trainer_pokemon_path(@trainer, pokemon),
+                                method: :delete,
+                                data: { turbo_confirm: "Are you sure you want to release #{pokemon.name}?" },
+                                class: "btn p-0 border-0 bg-transparent card-delete" do %>
+                            <i class="fa-solid fa-circle-xmark text-danger"></i>
+                            <% end %>
+                        <% end %>
+                        <h3><%= pokemon.name %></h3>
+                        <h4><%= pokemon.poke_type %></h4>
+                    </div>
+                <% end %>
+            </div>
+        </div>
+
+        <div>
+            <% if ["Professor", "Gym Leader"].include?(@trainer.trainer_type) %>
+            <%= link_to "You can't change this person's pokemon!", "#", class: "btn btn-ghost" %>
+            <% elsif @trainer.name == "Sofi" %>
+            <%= link_to 'Search for Pokemon', new_trainer_pokemon_path(@trainer) %>
+            <% elsif @trainer.pokemons.all.count >= 6 %>
+            <%= link_to "You have too many pokemon! Release one or more before looking for new ones!", "#", class: "btn btn-diabled" %>
+            <% else %>
+            <%= link_to 'Search for Pokemon', new_trainer_pokemon_path(@trainer) %>
+            <% end %>
+            <%= link_to 'Return to Home', trainers_path %>
+        </div>
+    </div>
+
+</div>

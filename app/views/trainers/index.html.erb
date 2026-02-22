@@ -11,8 +11,17 @@
     <div class="grid">
         <!-- From Uiverse.io by Creatlydev --> 
         <% @trainers.each do |trainer| %>
+        <% if Trainer::TYPE.include?(trainer.trainer_type)
+            sprite = "#{trainer.trainer_type.parameterize(separator: '_')}.png"
+            elsif trainer.trainer_type == "Professor"
+            sprite = "professor.png"
+            elsif trainer.name == "Tate & Liza"
+            sprite = "tate-liza.png"
+            else
+            sprite = "#{trainer.name.parameterize(separator: '_')}.png" 
+            end %>
         <article class="card_window">
-            <section class="card_window__hero" style="background-image: linear-gradient(rgba(0,0,0,0.08), rgba(0,0,0,0.12)), url(<%= asset_path("sprites/#{trainer.trainer_type.parameterize(separator: '_')}.png") %>);">
+            <section class="card_window__hero" style="background-image: linear-gradient(rgba(0,0,0,0.08), rgba(0,0,0,0.12)), url(<%= asset_path("sprites/#{sprite}") %>);">
 
                 <p class="card_window__job-title"><%= trainer.name %></p>
             </section>

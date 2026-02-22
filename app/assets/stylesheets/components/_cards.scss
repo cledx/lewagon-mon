@@ -1,7 +1,8 @@
 .cards {
   display: grid;
-  grid-template-columns: 1fr 1fr 1fr 1fr;
+  grid-template-columns: 1fr 1fr;
   grid-gap: 8px;
+  justify-items: center;
 }
 
 // Smallest device
@@ -28,20 +29,21 @@
 // Large devices (desktops, 992px and up)
 @media (min-width: 992px) {
   .cards {
-    grid-template-columns: 1fr 1fr 1fr 1fr;
+    grid-template-columns: 1fr 1fr;
   }
 }
 
 // Extra large devices (large desktops, 1200px and up)
 @media (min-width: 1200px) {
   .cards {
-    grid-template-columns: 1fr 1fr 1fr 1fr;
+    grid-template-columns: 1fr 1fr;
   }
 }
 
 .card-category {
   background-size: cover;
   background-position: center;
+  position: relative;
   height: 280px;
   width:280px;
   display: flex;
@@ -53,6 +55,11 @@
   text-shadow: 1px 1px 3px rgba(0,0,0,0.2);
   border-radius: 5px;
   box-shadow: 0 0 15px rgba(0,0,0,0.2);
+  .card-delete{
+    position:absolute,;
+    top: 0;
+    right: 0;
+  }
 }
 
 
@@ -66,19 +73,29 @@
   color: #141417;
 }
 .card_window__hero {
-  background-color: #fef4e2;
+  background-color: #66af92;
+  box-shadow: inset 0 0 0 6px $navy;
   border-radius: 0.5rem 0.5rem 0 0;
   padding: 1.5rem;
   font-size: 0.875rem;
   background-size: cover;
   background-position: center;
   background-repeat: no-repeat;
+  height: 284px;
+  width: 284px;
 }
 .card_window__hero .card_window__job-title {
   margin: 2rem 0;
   font-size: 2rem;
   font-weight: 600;
   padding-right: 2rem;
+  color: white;
+  font-size: x-large;
+  text-shadow:
+    -1px -1px 0 black,
+    1px -1px 0 black,
+    -1px  1px 0 black,
+    1px  1px 0 black;
 }
 .card_window__hero-header {
   display: flex;
