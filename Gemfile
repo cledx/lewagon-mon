@@ -67,4 +67,7 @@ group :test do
   gem "capybara"
   gem "selenium-webdriver"
 end
-gem 'simple_form'
+
+group :production do 
+  gem 'pg'
+end
